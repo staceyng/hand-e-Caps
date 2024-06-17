@@ -14,7 +14,7 @@ def main():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--window-size=1920,1080')
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(LONG_WAIT_TIME)
@@ -111,13 +111,13 @@ def main():
         driver.find_element(By.ID, "btn_chkAnswer").click()
         time.sleep(SHORT_WAIT_TIME)
 
-        # call_sign = driver.find_element(By.ID, "txtCallsign")
-        # call_sign.click()
-        # call_sign.send_keys(USER)
+        call_sign = driver.find_element(By.ID, "txtCallsign")
+        call_sign.click()
+        call_sign.send_keys(USER)
 
-        # driver.find_element(By.ID, "btn_submit").click()
-        # time.sleep(LONG_WAIT_TIME)
-        # print(f"Successfully submitted e-CAPs for {USER}")
+        driver.find_element(By.ID, "btn_submit").click()
+        time.sleep(LONG_WAIT_TIME)
+        print(f"Successfully submitted e-CAPs for {USER}")
     except Exception as err:
         print(f"Exception encountered - {err}")
         driver.quit()

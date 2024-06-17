@@ -1,6 +1,11 @@
 # hand-e-Caps
 
-Python script using Selenium to fill in e-CAPS weekly form. It uses selenium web driver for Chrome.
+Python script using Selenium to fill in e-CAPS weekly form. It uses selenium web driver for Chrome. By default its set to run in headless mode.
+
+Verify form submission by checking that the output "Successfully submitted e-CAPs for USER" is printed.
+
+## Demo
+![demo](./demo/handecaps-demo.gif)
 
 ## Setup and runing locally
 
@@ -10,3 +15,6 @@ Python script using Selenium to fill in e-CAPS weekly form. It uses selenium web
 3. Source virtual env with `source .venv/bin/activate`
 4. pip install -r requirements.txt
 5. python script.py
+
+## Future work
+1. Set USER args to make form submission applicable to anyone
