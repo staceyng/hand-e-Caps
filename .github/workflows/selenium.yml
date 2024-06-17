@@ -1,14 +1,15 @@
-name: Run Selenium Script
+name: Run e-CAPS script
 on:
   workflow_dispatch:
-    workflow: Run Selenium Script
+    workflow: Run e-CAPS script
 jobs:
   run-selenium:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Install deps
         run: |
           pip install -r requirements.txt
-      - name: Run Selenium Script
+      - name: Run script
         run: |
           python hello_world.py
