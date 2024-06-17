@@ -6,12 +6,17 @@ from selenium.webdriver.common.by import By
 CAPS_URL = "https://script.google.com/a/macros/motional.com/s/AKfycbxMMR5oJ7rIDGGJTKCrskeb9xkO72uMzsYuPfevlvYGxnhnZeaE878Rdh_qqwtQXXaq/exec"
 SHORT_WAIT_TIME = 3
 LONG_WAIT_TIME = 10
-
+USER = "arc"
 
 def main():
     """Main function with automation by selenium web driver"""
-    # 1. Open CAPS webpage
-    driver = webdriver.Chrome()
+    # 1. Webdriver Options and Open CAPS webpage
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--window-size=1920,1080')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(LONG_WAIT_TIME)
     driver.get(CAPS_URL)
 
@@ -94,6 +99,7 @@ def main():
     )
 
     try:
+        print("Running e-CAPs in chrome headless mode")
         driver.switch_to.frame("sandboxFrame")
         driver.switch_to.frame("userHtmlFrame")
 
@@ -105,13 +111,13 @@ def main():
         driver.find_element(By.ID, "btn_chkAnswer").click()
         time.sleep(SHORT_WAIT_TIME)
 
-        call_sign = driver.find_element(By.ID, "txtCallsign")
-        call_sign.click()
-        call_sign.send_keys("arc")
+        # call_sign = driver.find_element(By.ID, "txtCallsign")
+        # call_sign.click()
+        # call_sign.send_keys(USER)
 
-        driver.find_element(By.ID, "btn_submit").click()
-        time.sleep(LONG_WAIT_TIME)
-        print("Successfully submitted e-CAPs")
+        # driver.find_element(By.ID, "btn_submit").click()
+        # time.sleep(LONG_WAIT_TIME)
+        # print(f"Successfully submitted e-CAPs for {USER}")
     except Exception as err:
         print(f"Exception encountered - {err}")
         driver.quit()

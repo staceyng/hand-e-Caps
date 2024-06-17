@@ -1,14 +1,12 @@
-# e-CAPS
+# hand-e-Caps
 
-Python script using Selenium to fill in e-CAPS weekly form
+Python script using Selenium to fill in e-CAPS weekly form. It uses selenium web driver for Chrome.
 
-## Setup
+## Setup and runing locally
 
-0. Install python 3.9
-1. Create virtual env with python - `python -m venv .venv`
-2. pip install selenium
-
-## How to run
-
-1. source .venv/bin/activate
-2. python script.py
+0. Install Chrome web browser
+1. Install python3
+2. Create virtual env with python - `python -m venv .venv`
+3. Source virtual env with `source .venv/bin/activate`
+4. pip install -r requirements.txt
+5. python script.py

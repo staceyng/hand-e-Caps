@@ -1,0 +1,14 @@
+name: Run Selenium Script
+on:
+  workflow_dispatch:
+    workflow: Run Selenium Script
+jobs:
+  run-selenium:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt
+      - name: Run Selenium Script
+        run: |
+          python hello_world.py
