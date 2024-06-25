@@ -18,4 +18,4 @@ Verify form submission by checking that the output "Successfully submitted e-CAP
 5. python script.py
 
 ## Future work
-1. Set USER args to make form submission applicable to anyone
+- [x] Set USER args to make form submission applicable to anyone
