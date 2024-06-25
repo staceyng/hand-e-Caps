@@ -2,11 +2,11 @@ name: Run Hello-World
 on:
   workflow_dispatch:
     workflow: Run Hello-World
-      inputs:
-          name: 
-          description: "Name/Callsign"
-          required: True
-          default: "Stacey"
+    inputs:
+      name:
+      description: "Name/Callsign"
+      required: True
+      default: "Stacey"
 
 jobs:
   run-hello-world:
