@@ -1,6 +1,7 @@
 name: Run test hello world script with args
 on:
   workflow_dispatch:
+    workflow: Run Hello-World
     inputs:
       name: 
       description: "Name of the user"
