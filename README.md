@@ -1,4 +1,5 @@
 # hand-e-Caps
+<img src="./demo/hand-e-caps.png" width="350" height="200" />
 
 Python script using Selenium to fill in e-CAPS weekly form. It uses selenium web driver for Chrome. By default its set to run in headless mode.
 
