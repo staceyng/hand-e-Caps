@@ -1,11 +1,12 @@
-name: Run test hello world script with args
+name: Run Hello-World
 on:
   workflow_dispatch:
-    inputs:
-      name: 
-      description: "Name/Callsign"
-      required: True
-      default: "Stacey"
+    workflow: Run Hello-World
+      inputs:
+        name: 
+        description: "Name/Callsign"
+        required: True
+        default: "Stacey"
 
 jobs:
   run-hello-world:
