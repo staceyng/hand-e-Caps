@@ -1,7 +1,13 @@
-name: Run e-CAPS script
+name: Run e-CAPS
+
 on:
   workflow_dispatch:
-    workflow: Run e-CAPS script
+    inputs:
+      name:
+        description: "Enter Name/Callsign"
+        required: True
+        default: arc
+
 jobs:
   run-selenium:
     runs-on: ubuntu-latest
@@ -12,4 +18,4 @@ jobs:
           pip install -r requirements.txt
       - name: Run script
         run: |
-          python script.py
+          python script.py --name "${{ github.event.inputs.name }}"
