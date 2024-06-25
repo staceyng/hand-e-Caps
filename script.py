@@ -1,3 +1,4 @@
+import argparse
 import time
 
 from selenium import webdriver
@@ -8,14 +9,22 @@ SHORT_WAIT_TIME = 3
 LONG_WAIT_TIME = 10
 USER = "arc"
 
+
 def main():
     """Main function with automation by selenium web driver"""
+    # 0. Parse call sign in
+    parser = argparse.ArgumentParser(description="Run hand-e-caps for user:<name>")
+    parser.add_argument(
+        "--name", type=str, nargs="?", default=USER, help="Name/Callsign"
+    )
+    args = parser.parse_args()
+
     # 1. Webdriver Options and Open CAPS webpage
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--window-size=1920,1080')
-    # chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(LONG_WAIT_TIME)
     driver.get(CAPS_URL)
@@ -99,7 +108,7 @@ def main():
     )
 
     try:
-        print("Running e-CAPs in chrome headless mode")
+        print(f"Running e-CAPs script in chrome headless mode for user:{args.name}")
         driver.switch_to.frame("sandboxFrame")
         driver.switch_to.frame("userHtmlFrame")
 
@@ -113,11 +122,11 @@ def main():
 
         call_sign = driver.find_element(By.ID, "txtCallsign")
         call_sign.click()
-        call_sign.send_keys(USER)
+        call_sign.send_keys(args.name)
 
         driver.find_element(By.ID, "btn_submit").click()
         time.sleep(LONG_WAIT_TIME)
-        print(f"Successfully submitted e-CAPs for {USER}")
+        print(f"Successfully submitted e-CAPs for {args.name}")
     except Exception as err:
         print(f"Exception encountered - {err}")
         driver.quit()

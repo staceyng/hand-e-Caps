@@ -1,0 +1,20 @@
+name: Run test hello world script with args
+on:
+  workflow_dispatch:
+    inputs:
+      name: 
+      description: "Name of the user"
+      required: False
+      default: "Stacey"
+
+jobs:
+  run-hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt
+      - name: Run script
+        run: |
+          python hello_world.py --name "${{ github.event.inputs.name }}"
