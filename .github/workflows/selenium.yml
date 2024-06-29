@@ -1,6 +1,8 @@
 name: Run e-CAPS
 
 on:
+  schedule:
+    - cron: "0 23 * * 0"
   workflow_dispatch:
     inputs:
       name:
@@ -18,4 +20,4 @@ jobs:
           pip install -r requirements.txt
       - name: Run script
         run: |
-          python script.py --name "${{ github.event.inputs.name }}"
+          python script.py --name "${{ github.event.inputs.name || 'arc' }}"
