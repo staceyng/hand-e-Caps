@@ -20,4 +20,4 @@ jobs:
           pip install -r requirements.txt
       - name: Run script
         run: |
-          python hello_world.py --name "${{ github.event.inputs.name }}"
+          python hello_world.py --name "${{ github.event.inputs.name || 'Stacey' }}"
