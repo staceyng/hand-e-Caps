@@ -11,11 +11,11 @@ Verify form submission by checking that the output "Successfully submitted e-CAP
 ## Setup and runing locally
 
 0. Install Chrome web browser
-1. Install python3
+1. Install python3, minimally python 3.9
 2. Create virtual env with python - `python -m venv .venv`
 3. Source virtual env with `source .venv/bin/activate`
 4. pip install -r requirements.txt
-5. python script.py
+5. run script with `python script.py`
 
 ## Future work
 - [x] Set USER args to make form submission applicable to anyone
