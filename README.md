@@ -12,7 +12,7 @@ Verify form submission by checking that the output "Successfully submitted e-CAP
 
 ## Setup and runing locally
 
-0. Install Chrome web browser
+0. Install any chromium web browser (brave/chrome)
 1. Install python3, minimally python 3.9
 2. Create virtual env with python - `python -m venv .venv`
 3. Source virtual env with `source .venv/bin/activate`
@@ -23,4 +23,5 @@ Verify form submission by checking that the output "Successfully submitted e-CAP
 
 - [x] Set USER args to make form submission applicable to anyone
 - [x] Set e-Caps script to run every Sunday at 11pm
+- [x] Setup an instance to run it in docker container
 - [ ] Setup automated commits
