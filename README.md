@@ -24,4 +24,4 @@ Verify form submission by checking that the output "Successfully submitted e-CAP
 - [x] Set USER args to make form submission applicable to anyone
 - [x] Set e-Caps script to run every Sunday at 11pm
 - [x] Setup an instance to run it in docker container
-- [ ] Setup automated commits
+- [ ] Upgrade python version
